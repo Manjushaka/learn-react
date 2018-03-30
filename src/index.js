@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import './index.css';
 import App from './App';
-import { countAddMinus } from './reducer';
+import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(countAddMinus);
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 store.subscribe(() => {
     console.log('subscribe state: ', store.getState());
 })

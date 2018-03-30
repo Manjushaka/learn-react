@@ -33,7 +33,7 @@ class App extends React.Component {
 
   render() {
     const { getState, dispatch, subscribe } = this.props.store;
-    const { count } = getState();
+    const { countAddMinus, nameAge } = getState();
 
     return (
       <div className="App">
@@ -42,7 +42,8 @@ class App extends React.Component {
           <h1 className="App-title">hello world</h1>
         </header>
         <div className="App-intro">
-          <h1>count: {count}</h1>
+          <h1>hello: {nameAge.name}</h1>
+          <h1>count: {countAddMinus.count}</h1>
           <button onClick={this.handleClickAdd}>+1</button>
           <button onClick={this.handleClickMinus}>-2</button>
         </div>
