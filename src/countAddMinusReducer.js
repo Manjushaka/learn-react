@@ -13,6 +13,10 @@ export default function countAddMinus(state = initialState, action) {
             return Object.assign({}, state, {
                 count: state.count - action.payload,
             });
+        case 'increase':
+            return Object.assign({}, state, {
+                count: state.count + 1,
+            });
         default:
             return state;
     }
