@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import Counter from './containers/counter';
+import AddTodo from './containers/addTodo/index';
 import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -19,25 +20,25 @@ const store = createStore(
     ),
 );
 
-setTimeout(function() {
-    store.dispatch({
-        type: 'ADD'
-    })
-}, 5000);
+// setTimeout(function() {
+//     store.dispatch({
+//         type: 'ADD'
+//     })
+// }, 5000);
 
-setTimeout(function() {
-    store.dispatch({
-        type: 'CHANGE_AGE',
-        payload: {
-            age: 24,
-        }
-    })
-}, 10000);
+// setTimeout(function() {
+//     store.dispatch({
+//         type: 'CHANGE_AGE',
+//         payload: {
+//             age: 24,
+//         }
+//     })
+// }, 10000);
 
 // ReactDOM.render(<App store={store} />, document.getElementById('root'));
 ReactDOM.render(
     <Provider store={store}>
-        <Counter />
+        <AddTodo />
     </Provider>,
     document.getElementById('root')
 );
