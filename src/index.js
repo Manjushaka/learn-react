@@ -4,11 +4,14 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
 import Counter from './containers/counter';
-import AddTodo from './containers/addTodo/index';
+import AddTodoWithRouter from './containers/addTodoWithRouter/index';
+import Reddit from './containers/reddit/index';
+import Test from './containers/test/index';
 import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -36,10 +39,15 @@ const store = createStore(
 // }, 10000);
 
 // ReactDOM.render(<App store={store} />, document.getElementById('root'));
+const Root = ({store}) => (
+  <Provider store={store}>
+    <Router>
+      <Route path="/" component={Test} />
+    </Router>
+  </Provider>
+)
 ReactDOM.render(
-    <Provider store={store}>
-        <AddTodo />
-    </Provider>,
+    <Root store={store} />,
     document.getElementById('root')
 );
 registerServiceWorker();
