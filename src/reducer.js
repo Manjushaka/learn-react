@@ -4,6 +4,7 @@ import nameAgeReducer from './nameAgeReducer';
 import userReducer from './userReducer';
 import addTodoReducer from './containers/addTodo/reducers';
 import reddit from './containers/reddit/reducers';
+import reddit1 from './containers/reddit1/reducer';
 
 export default combineReducers({
     countAddMinus: countAddMinusReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
     user: userReducer,
     addTodo: addTodoReducer,
     reddit,
+    reddit1,
 });

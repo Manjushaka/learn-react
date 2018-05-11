@@ -11,6 +11,7 @@ import App from './App';
 import Counter from './containers/counter';
 import AddTodoWithRouter from './containers/addTodoWithRouter/index';
 import Reddit from './containers/reddit/index';
+import Reddit1 from './containers/reddit1/index';
 import Test from './containers/test/index';
 import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
@@ -39,13 +40,18 @@ const store = createStore(
 // }, 10000);
 
 // ReactDOM.render(<App store={store} />, document.getElementById('root'));
-const Root = ({store}) => (
+/*const Root = ({store}) => (
   <Provider store={store}>
     <Router>
-      <Route path="/" component={Test} />
+      <Route path="/" component={Reddit1} />
     </Router>
   </Provider>
-)
+)*/
+const Root = ({store}) => (
+  <Provider store={store}>
+    <Reddit1 name="this is root-reddit1" />
+  </Provider>
+);
 ReactDOM.render(
     <Root store={store} />,
     document.getElementById('root')

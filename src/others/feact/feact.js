@@ -1,4 +1,5 @@
-// english post link: http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/
+// english post link:
+// http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/
 
 class FeactDOMComponent {
   constructor(element) {
