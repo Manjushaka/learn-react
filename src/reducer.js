@@ -5,6 +5,7 @@ import userReducer from './userReducer';
 import addTodoReducer from './containers/addTodo/reducers';
 import reddit from './containers/reddit/reducers';
 import reddit1 from './containers/reddit1/reducer';
+import counterSagaReducer from './containers/counterSaga/reducer';
 
 export default combineReducers({
     countAddMinus: countAddMinusReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
     addTodo: addTodoReducer,
     reddit,
     reddit1,
+    counterSaga: counterSagaReducer,
 });
