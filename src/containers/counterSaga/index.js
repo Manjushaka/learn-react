@@ -1,7 +1,24 @@
 import React from 'react';
 import { Button } from 'antd';
 import {connect} from 'react-redux';
+import axios from 'axios';
+/*
+// Generator函数实现异步，saga的原理吧？？
+const ai = ajaxMain('http://localhost:9002/user');
+ai.next();
 
+function* ajaxMain(url) {
+  console.log(11);
+  const res = yield request(url);
+  console.log(22, res);
+}
+
+function request(url) {
+  axios(url).then((response) => {
+    ai.next(response);
+  });
+}
+*/
 class CounterSaga extends React.Component {
   handleAddAsync = () => {
     this.props.dispatch({
@@ -15,18 +32,36 @@ class CounterSaga extends React.Component {
     });
   }
 
+  handleFetchMockList = () => {
+    this.props.dispatch({
+      type: 'SAGA_FETCH_MOCK_LIST',
+      params: {
+        name: 'test1',
+        age: 123,
+      },
+    });
+  }
+
   render() {
+    const { addCounter: { counter}, mockList } = this.props;
+    const { isFetching, response, error } = mockList;
+
     return (
       <div>
-        <Button onClick={this.handleAddAsync}>Add After 1 second</Button>
-        <br />
+        <h1>Counter Saga</h1>
+        <Button onClick={this.handleAddAsync}>Add After 3 seconds</Button>
         <Button onClick={this.handleAdd}>Add</Button>
-        <br />
         <Button>Minus</Button>
+        <h2>counter: {counter}</h2>
+        <Button type="primary" onClick={this.handleFetchMockList}>fetch list</Button>
+        {isFetching && <h2>loading ...</h2>}
+        {!isFetching && error && <h2>error ...</h2>}
+        {!isFetching && response.length === 0 ? (<h2>no data.</h2>) : (<div>
+          {response.map(item => (<div key={item.id}><h4>{item.name}</h4>age: {item.age}, address: {item.address}</div>))}
+          </div>)}
         <br />
-        <h2>counter: {this.props.counter}</h2>
       </div>
-    )
+    );
   }
 }
 
