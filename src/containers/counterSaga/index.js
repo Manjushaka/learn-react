@@ -42,6 +42,18 @@ class CounterSaga extends React.Component {
     });
   }
 
+  handleClickTestChannel = () => {
+    this.props.dispatch({
+      type: 'TEST_CHANNEL',
+      payload: {
+        params: {
+          name: 'from dan',
+          age: 18,
+        },
+      },
+    });
+  }
+
   render() {
     const { addCounter: { counter}, mockList } = this.props;
     const { isFetching, response, error } = mockList;
@@ -60,6 +72,7 @@ class CounterSaga extends React.Component {
           {response.map(item => (<div key={item.id}><h4>{item.name}</h4>age: {item.age}, address: {item.address}</div>))}
           </div>)}
         <br />
+        <Button id="test-channel" type="primary" onClick={this.handleClickTestChannel}>Test Channel</Button>
       </div>
     );
   }
