@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from 'antd';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import Point from '../../others/js/decorator';
+
 /*
 // Generator函数实现异步，saga的原理吧？？
 const ai = ajaxMain('http://localhost:9002/user');
