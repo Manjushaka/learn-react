@@ -9,13 +9,15 @@ import { BrowserRouter, Route, Link, Switch, NavLink } from 'react-router-dom';
 
 import './index.css';
 // import App from './App';
-import RouterApp from './others/react-router-example/DealingWithUpdateBlocking';
-import Counter from './containers/counter';
-import AddTodoWithRouter from './containers/addTodoWithRouter/index';
-import Reddit from './containers/reddit/index';
-import Reddit1 from './containers/reddit1/index';
-import Test from './containers/test/index';
-import CounterSaga from './containers/counterSaga/index';
+// import RouterApp from './others/react-router-example/DealingWithUpdateBlocking';
+// import Counter from './containers/counter';
+// import AddTodoWithRouter from './containers/addTodoWithRouter/index';
+// import Reddit from './containers/reddit/index';
+// import Reddit1 from './containers/reddit1/index';
+// import Test from './containers/test/index';
+// import CounterSaga from './containers/counterSaga/index';
+// import OptimizateReduxDemo from './containers/optimizateReduxDemo';
+import OptimizateReduxDemo2 from './containers/optimizateReduxDemo/index2';
 import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -31,7 +33,7 @@ const store = createStore(
     ),
 );
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
 // ReactDOM.render(<App store={store} />, document.getElementById('root'));
 /*const Root = ({store}) => (
@@ -41,70 +43,34 @@ sagaMiddleware.run(rootSaga);
     </Router>
   </Provider>
 )*/
+const items = [{
+  itemId: 0,
+  content: 'content 0',
+}, {
+  itemId: 1,
+  content: 'content 1',
+}, {
+  itemId: 2,
+  content: 'content 2',
+}, {
+  itemId: 3,
+  content: 'content 3',
+}, {
+  itemId: 4,
+  content: 'content 4',
+}, {
+  itemId: 5,
+  content: 'content 5',
+}]
+
 const Root = ({store}) => (
   <Provider store={store}>
-    <CounterSaga name="this is root-reddit1" />
+    <OptimizateReduxDemo2 test='test from root' items={items} />
   </Provider>
 );
 
-const DashboardTest = () => (
-  <h2> this is dashboard test</h2>
-);
-
-const Dashboard = () => (
-  <h2> this is dashboard</h2>
-);
-
-const Home = () => (
-  <h2> this is home.</h2>
-);
-
-const Lily = (props) => {
-  console.log('lily: ', props);
-  return (
-    <h3>this is lily.</h3>
-  );
-}
-
-const Introduce = (props) => {
-  console.log(props);
-  const { match } = props;
-  return (
-    <div>
-      <h2>this is introduce</h2>
-      <Link to={match.url + '/lily'}>Lily</Link>
-      <Route path={match.url + '/lily'} component={Lily} />
-    </div>
-  );
-}
-
-const NoMatch = (props) => {
-  console.log('nomatch: ', props);
-  return (
-    <h4>this is no match. 404.</h4>
-  )
-}
-
-const App = () => (
-  <div>
-    <nav>
-      <NavLink to="/dashboard">Dashboard</NavLink>
-      <NavLink to="/introduce">Introduce</NavLink>
-      <NavLink to="/home">Home</NavLink>
-    </nav>
-    <div>
-      <Switch>
-        <Route path="/dashboard/test" component={DashboardTest} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/introduce" component={Introduce} />
-        <Route path="/home" component={Home} />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </div>
-)
 ReactDOM.render(
-    <RouterApp />,
+    <Root store={store} />,
     document.getElementById('root')
 );
 
