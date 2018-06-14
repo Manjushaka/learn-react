@@ -17,7 +17,8 @@ import './index.css';
 // import Test from './containers/test/index';
 // import CounterSaga from './containers/counterSaga/index';
 // import OptimizateReduxDemo from './containers/optimizateReduxDemo';
-import OptimizateReduxDemo2 from './containers/optimizateReduxDemo/index2';
+// import OptimizateReduxDemo2 from './containers/optimizateReduxDemo/index2';
+import OptimizateReduxDemo3 from './containers/optimizateReduxDemo/index3';
 import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -65,7 +66,7 @@ const items = [{
 
 const Root = ({store}) => (
   <Provider store={store}>
-    <OptimizateReduxDemo2 test='test from root' items={items} />
+    <OptimizateReduxDemo3 test='test from root' items={items} />
   </Provider>
 );
 
