@@ -1,0 +1,46 @@
+.pesudo {
+  display: inline-block;
+  padding: 60px;
+  border-radius: 15px;
+  background-color: hsl(130, 80%, 30%);
+  margin-right: 30px;
+}
+
+.pesudo1:hover {
+  background-color: hsl(130, 80%, 70%);
+}
+
+.pesudo1:active {
+  background-color: hsl(130, 80%, 10%);
+}
+
+.pesudo2 {
+  position: relative;
+  background-color: #d46dea;
+}
+
+.pesudo2::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pesudo2::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.pesudo2:hover::before {
+  content: '';
+}
+
+.pesudo2:active::after {
+  content: '';
+}
